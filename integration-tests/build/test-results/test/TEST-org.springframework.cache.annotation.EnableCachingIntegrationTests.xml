@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.springframework.cache.annotation.EnableCachingIntegrationTests" tests="2" skipped="0" failures="0" errors="0" timestamp="2020-06-08T09:36:18" hostname="bogon" time="0.491">
+  <properties/>
+  <testcase name="repositoryUsesAspectJAdviceMode()" classname="org.springframework.cache.annotation.EnableCachingIntegrationTests" time="0.024"/>
+  <testcase name="repositoryIsClassBasedCacheProxy()" classname="org.springframework.cache.annotation.EnableCachingIntegrationTests" time="0.466"/>
+  <system-out><![CDATA[17:36:18.532 [Test worker] DEBUG o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@6151b6b2
+17:36:18.533 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalConfigurationAnnotationProcessor'
+17:36:18.537 [Test worker] WARN  o.s.c.a.AnnotationConfigApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanDefinitionStoreException: Failed to process import candidates for configuration class [org.springframework.cache.annotation.EnableCachingIntegrationTests$AspectJCacheConfig]; nested exception is java.io.FileNotFoundException: class path resource [org/springframework/cache/aspectj/AspectJCachingConfiguration.class] cannot be opened because it does not exist
+17:36:18.540 [Test worker] DEBUG o.s.c.a.AnnotationConfigApplicationContext - Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@7383b946
+17:36:18.541 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalConfigurationAnnotationProcessor'
+17:36:18.564 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.context.event.internalEventListenerProcessor'
+17:36:18.565 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.context.event.internalEventListenerFactory'
+17:36:18.566 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalAutowiredAnnotationProcessor'
+17:36:18.567 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalCommonAnnotationProcessor'
+17:36:18.568 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalPersistenceAnnotationProcessor'
+17:36:18.568 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.aop.config.internalAutoProxyCreator'
+17:36:18.572 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'enableCachingIntegrationTests.Config'
+17:36:18.575 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.cache.config.internalCacheAdvisor'
+17:36:18.575 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'org.springframework.cache.annotation.ProxyCachingConfiguration'
+17:36:18.583 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'cacheOperationSource'
+17:36:18.833 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'cacheInterceptor'
+17:36:18.834 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'cacheInterceptor' via factory method to bean named 'cacheOperationSource'
+17:36:18.862 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'org.springframework.cache.config.internalCacheAdvisor' via factory method to bean named 'cacheOperationSource'
+17:36:18.862 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'org.springframework.cache.config.internalCacheAdvisor' via factory method to bean named 'cacheInterceptor'
+17:36:18.871 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'enableCachingIntegrationTests.ProxyTargetClassCachingConfig'
+17:36:18.876 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'fooRepository'
+17:36:18.996 [Test worker] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'mgr'
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
