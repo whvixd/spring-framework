@@ -857,6 +857,7 @@ public class DispatcherServlet extends FrameworkServlet {
 	 * for the actual dispatching.
 	 */
 	@Override
+	// whvixd:上层是FrameworkServlet,doService
 	protected void doService(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		if (logger.isDebugEnabled()) {
 			String resumed = WebAsyncUtils.getAsyncManager(request).hasConcurrentResult() ? " resumed" : "";

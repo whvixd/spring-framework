@@ -833,10 +833,12 @@ public abstract class FrameworkServlet extends HttpServletBean implements Applic
 	 * Override the parent class implementation in order to intercept PATCH requests.
 	 */
 	@Override
+	// whvixd:FrameworkServlet#service
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		if (HttpMethod.PATCH.matches(request.getMethod())) {
+			// invoke doService
 			processRequest(request, response);
 		}
 		else {
@@ -964,6 +966,7 @@ public abstract class FrameworkServlet extends HttpServletBean implements Applic
 		initContextHolders(request, localeContext, requestAttributes);
 
 		try {
+			// DispatcherServlet#doService
 			doService(request, response);
 		}
 		catch (ServletException ex) {
