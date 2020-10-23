@@ -932,6 +932,7 @@ public class DispatcherServlet extends FrameworkServlet {
 				multipartRequestParsed = (processedRequest != request);
 
 				// Determine handler for the current request.
+				// whvixd:获取当前请求的处理器
 				mappedHandler = getHandler(processedRequest);
 				if (mappedHandler == null || mappedHandler.getHandler() == null) {
 					noHandlerFound(processedRequest, response);
@@ -959,6 +960,7 @@ public class DispatcherServlet extends FrameworkServlet {
 				}
 
 				// Actually invoke the handler.
+				// whvixd:处理请求
 				mv = ha.handle(processedRequest, response, mappedHandler.getHandler());
 
 				if (asyncManager.isConcurrentHandlingStarted()) {

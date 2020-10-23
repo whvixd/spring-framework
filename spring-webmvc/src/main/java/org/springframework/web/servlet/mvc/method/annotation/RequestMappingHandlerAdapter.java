@@ -740,6 +740,7 @@ public class RequestMappingHandlerAdapter extends AbstractHandlerMethodAdapter
 		}
 		else {
 			// No synchronization on session demanded at all...
+			// whvixd:invokeHandlerMethod
 			mav = invokeHandlerMethod(request, response, handlerMethod);
 		}
 
@@ -829,6 +830,7 @@ public class RequestMappingHandlerAdapter extends AbstractHandlerMethodAdapter
 			invocableMethod = invocableMethod.wrapConcurrentResult(result);
 		}
 
+		// whvixd:invokeAndHandle
 		invocableMethod.invokeAndHandle(webRequest, mavContainer);
 		if (asyncManager.isConcurrentHandlingStarted()) {
 			return null;

@@ -214,11 +214,13 @@ public abstract class AbstractMessageConverterMethodProcessor extends AbstractMe
 				if (messageConverter instanceof GenericHttpMessageConverter) {
 					if (((GenericHttpMessageConverter<T>) messageConverter).canWrite(
 							declaredType, valueType, selectedMediaType)) {
+						// whvixd:处理返回值
 						value = (T) getAdvice().beforeBodyWrite(value, returnType, selectedMediaType,
 								(Class<? extends HttpMessageConverter<?>>) messageConverter.getClass(),
 								inputMessage, outputMessage);
 						if (value != null) {
 							addContentDispositionHeader(inputMessage, outputMessage);
+							// whvixd:write
 							((GenericHttpMessageConverter<T>) messageConverter).write(
 									value, declaredType, selectedMediaType, outputMessage);
 							if (logger.isDebugEnabled()) {

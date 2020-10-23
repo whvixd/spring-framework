@@ -133,6 +133,7 @@ public class InvocableHandlerMethod extends HandlerMethod {
 			sb.append(Arrays.asList(args));
 			logger.trace(sb.toString());
 		}
+		// whvixd:doInvoke
 		Object returnValue = doInvoke(args);
 		if (logger.isTraceEnabled()) {
 			logger.trace("Method [" + getMethod().getName() + "] returned [" + returnValue + "]");
@@ -218,6 +219,8 @@ public class InvocableHandlerMethod extends HandlerMethod {
 	protected Object doInvoke(Object... args) throws Exception {
 		ReflectionUtils.makeAccessible(getBridgedMethod());
 		try {
+			// whvixd:最终通过反射调用controller中的方法
+			// whvixd:method.invoke(instance,args)
 			return getBridgedMethod().invoke(getBean(), args);
 		}
 		catch (IllegalArgumentException ex) {

@@ -235,9 +235,12 @@ public abstract class AbstractJackson2HttpMessageConverter extends AbstractGener
 	protected void writeInternal(Object object, Type type, HttpOutputMessage outputMessage)
 			throws IOException, HttpMessageNotWritableException {
 
+		// whvixd:write response
 		JsonEncoding encoding = getJsonEncoding(outputMessage.getHeaders().getContentType());
+		// whvixd:OutputStream:outputMessage.getBody()
 		JsonGenerator generator = this.objectMapper.getFactory().createGenerator(outputMessage.getBody(), encoding);
 		try {
+			// whvixd: object是业务代码返回值
 			writePrefix(generator, object);
 
 			Class<?> serializationView = null;
@@ -266,6 +269,16 @@ public abstract class AbstractJackson2HttpMessageConverter extends AbstractGener
 			if (javaType != null && javaType.isContainerType()) {
 				objectWriter = objectWriter.withType(javaType);
 			}
+			// whvixd: 向输出流中写数据；
+			// whvixd:value为业务代码返回值
+			/*
+			Socket socket =new Socket("127.0.0.1",8080);
+            BufferedWriter bufferedWriter =new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
+            String str=serializer(value);
+            bufferedWriter.write(str);
+			*/
+			// 向socket的输出流写数据，最终写到网卡中，由网卡发送以太网数据包到服务端
+			// 过程:http属于网络模型中的应用层(用户态) -> tcp传输层(内核态) -> ip网络层(内核态) -> 链路层 - - - > Server -> socket.accept...
 			objectWriter.writeValue(generator, value);
 
 			writeSuffix(generator, object);
